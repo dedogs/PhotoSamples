@@ -11,35 +11,52 @@
     function preLoadImages() {
         var src = [],
             image,
-            section = $("section").first().hide(),
+            section = $("section").first(),
+            width = section.width(),
+            height = 833,
+            fragment = document.createDocumentFragment(),
             div,
-            i = 0;
+            i = 0,
+            setWidth = function(src) {
+                var position = src.indexOf("p=") + 2,
+                    handler = src.substring(0, position),
+                    o = JSON.parse(src.substring(position, src.length));
+                
+                o.Dimensions.Width = width;
+                o.Dimensions.Height = height;
+                return handler + JSON.stringify(o);
+            };
         @{
             string[] src = Model.ToArray();
 
             for (int i = 0; i < Model.Count(); i++) {
                 @:src[@i] = '@Html.Raw(src[i])';
-                                                                      }
+                     }
            }
 
         i = 0;
         (function imageLoad() {
             if (src[i]) {
                 image = document.createElement('img');
+                src[i] = setWidth(src[i]);
                 image.src = src[i];
                 image.onload = function() {
-                    i++;
-                    
-                    div = $("<div>").attr("class", "img-content");
-                    div.append(image);
-                    section.append(div);
 
+                    div = document.createElement("div");
+                    div.setAttribute("class", "img-content")
+                    div.setAttribute("data-src", src[i]);
+                    div.appendChild(image);
+                    fragment.appendChild(div);
+
+                    i++;
                     imageLoad();
                 }
             } else {
-                div = $("<div>").attr("class", "break-all").html("&nbsp;");
-                section.append(div);
-                section.show();
+                div = document.createElement("div");
+                div.setAttribute("class", "break-all");
+                div.innerHTML = "&nbsp;";
+                fragment.appendChild(div);
+                section.append(fragment);
             }
         }())
     }
