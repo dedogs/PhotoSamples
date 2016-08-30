@@ -1,0 +1,21 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+    background-color:black;
+}
+
+section {
+    padding:15px 0;
+}
+
+.img-content {
+    margin-right: 15px;
+    margin-bottom: 15px;
+    background-color:red;
+    float:left;
+}
+.break-all {
+    clear:both;
+    margin:0;
+    padding:0;
+}
