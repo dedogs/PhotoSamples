@@ -1,21 +1,36 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
-    background-color:black;
+    background-color: black;
 }
 
 section {
-    padding:15px 0;
+    padding: 15px 0;
 }
 
 .img-content {
-    margin-right: 15px;
-    margin-bottom: 15px;
-    background-color:red;
-    float:left;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    vertical-align: middle;
+    float: left;
+    position:relative;
 }
+
+.img-content img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
 .break-all {
-    clear:both;
-    margin:0;
-    padding:0;
+    clear: both;
+    margin: 0;
+    padding: 0;
 }

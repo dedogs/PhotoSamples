@@ -14,7 +14,7 @@ namespace com.PhotoSamples
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.Add("ThumbRoute", new Route("thumbImage", new ThumbHandler()));
+            //routes.Add("ThumbRoute", new Route("thumbImage", new ThumbHandler()));
 
             routes.MapRoute(
                 name: "Default",

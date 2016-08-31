@@ -34,7 +34,7 @@ namespace com.PhotoSamples.Controllers
                     }
                 };
 
-                imageProperties.Add("/thumbImage?p=" + serializer.Serialize(imageProperty));
+                imageProperties.Add("/api/thumbImage?p=" + serializer.Serialize(imageProperty));
             }
             return View(imageProperties);
         }

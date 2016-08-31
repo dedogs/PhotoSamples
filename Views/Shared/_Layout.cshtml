@@ -41,7 +41,15 @@
     
     <script>
         $(function () {
-            preLoadImages();
+            //Returns a DOM fragment
+            appendImages(preLoadedImages(), 400, 400, false).done(function (fragment) {
+                $("section").append(fragment);
+            }).then(function() {
+                $("section div").remove();
+                appendImages(preLoadedImages(), 100, 100, false).done(function (fragment) {
+                    $("section").append(fragment);
+                })
+            });
         })
     </script>
 </body>
