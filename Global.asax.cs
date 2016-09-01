@@ -14,6 +14,7 @@ namespace com.PhotoSamples
     {
         protected void Application_Start()
         {
+            ViewEngines.Engines.Add(new PredefinedPathViewEngine());
             AreaRegistration.RegisterAllAreas();
 
             WebApiConfig.Register(GlobalConfiguration.Configuration);
