@@ -1,4 +1,4 @@
-﻿function appendImages(src, width, height, horizontalSpace, mask, handler) {
+﻿function appendImages(images, width, height, horizontalSpace, mask, handler) {
     var image,
         def = {},
         fragment,
@@ -14,7 +14,7 @@
         i = 0,
         setDimensions = function (index, dimension) {
             var position = handler.length,
-                o = JSON.parse(src[index].substring(position, src[index].length));
+                o = JSON.parse(images[index].substring(position, images[index].length));
 
             o.Dimensions.Width = dimension.width;
             o.Dimensions.Height = dimension.height;
@@ -22,7 +22,7 @@
             return JSON.stringify(o);
         };
 
-    //Allow only one call. Inital call must complete.
+    //Allow only one call. Initial call must complete.
     if (def["appendImages"]) {
         return def["appendImages"].promise();
     }
@@ -35,10 +35,10 @@
         var _div,
             _mask;
 
-        if (src[i]) {
+        if (images[i]) {
             image = document.createElement('img');
-            src[i] = handler + setDimensions(i, dimensions.inital);
-            image.src = src[i];
+            images[i] = handler + setDimensions(i, dimensions.inital);
+            image.src = images[i];
             image.onload = function () {
                 dimensions.width = this.width;
                 dimensions.height = this.height;
@@ -52,9 +52,9 @@
 
                 dimensions.inital.height > dimensions.height ? _div.height(dimensions.inital.height) : _div.height(dimensions.height);
 
-                src[i] = setDimensions(i, dimensions);
-                div.setAttribute("data-src", src[i]);
-                src[i] += handler;
+                images[i] = setDimensions(i, dimensions);
+                div.setAttribute("data-src", images[i]);
+                images[i] += handler;
 
                 div.appendChild(image);
 
