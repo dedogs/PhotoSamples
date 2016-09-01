@@ -98,7 +98,7 @@ $(function () {
         };
 
     //Returns a DOM fragment
-    appendImages(preLoadedImages(), width, height, false, mask).done(function (fragment) {
+    appendImages(preLoadedImages(), width, height, false, null).done(function (fragment) {
         $("section").html(fragment);
     });
 })

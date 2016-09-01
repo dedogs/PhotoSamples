@@ -132,6 +132,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Helpers\ImageHelper.cs" />
     <Compile Include="Models\ThumbHandler.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -142,13 +143,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\ConstructionSewerLinesHancockMI.jpg" />
-    <Content Include="Images\CorporalBunnyBluesSinger.jpg" />
-    <Content Include="Images\PortlandOregonWoodsLeafMeld-Edit.jpg" />
-    <Content Include="Images\skidmoreSaturdayMarketHumanStatue-3.jpg" />
-    <Content Include="Images\skidmoreSaturdayShortDude-1.jpg" />
-    <Content Include="Images\Walking2ndStreeetCorvallisOregon-Edit.jpg" />
-    <Content Include="Images\WorkingGarden-3.jpg" />
+    <Content Include="Images\dedogsLogo_whiteBG.png" />
+    <Content Include="Images\dedogsLogo_whiteBG50.png" />
+    <Content Include="Photos\ConstructionSewerLinesHancockMI.jpg" />
+    <Content Include="Photos\CorporalBunnyBluesSinger.jpg" />
+    <Content Include="Photos\PortlandOregonWoodsLeafMeld-Edit.jpg" />
+    <Content Include="Photos\skidmoreSaturdayMarketHumanStatue-3.jpg" />
+    <Content Include="Photos\skidmoreSaturdayShortDude-1.jpg" />
+    <Content Include="Photos\Walking2ndStreeetCorvallisOregon-Edit.jpg" />
+    <Content Include="Photos\WorkingGarden-3.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />

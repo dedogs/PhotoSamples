@@ -19,14 +19,14 @@ namespace com.PhotoSamples.Controllers
 
             List<string> imageProperties = new List<string>();
 
-            DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/Images"));
+            DirectoryInfo directory = new DirectoryInfo(Server.MapPath("~/Photos"));
 
             foreach (FileInfo file in directory.GetFiles())
             {
                 ImageProperties imageProperty = new ImageProperties
                 {
                     Name = file.Name,
-                    Path = "/Images",
+                    Path = "/Photos",
                     Dimensions = new Dimension<int>
                     {
                         Width = 300,
