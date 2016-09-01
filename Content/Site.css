@@ -1,5 +1,5 @@
 ﻿body {
-    padding-top: 50px;
+    padding-top: 75px;
     padding-bottom: 20px;
     background-color: black;
 }
@@ -8,6 +8,10 @@ section {
     padding: 15px 0;
 }
 
+.container {
+    height:75px;
+    padding-top:14px;
+}
 .img-content {
     margin-right: 8px;
     margin-bottom: 8px;
@@ -33,19 +37,39 @@ section {
     position: absolute;
     bottom: 0;
     left: 0;
-    height:50px;
+    height: 50px;
     background-color: #fff;
     opacity: 0.6;
     z-index: 1;
 }
-.mask div {
-    margin: 6px;
-    background-color:black;
-    opacity: 0.2;
-    height: 38px;
-}
+
+    .mask div {
+        margin: 6px;
+        background-color: black;
+        opacity: 0.2;
+        height: 38px;
+    }
+
 .break-all {
     clear: both;
     margin: 0;
     padding: 0;
+}
+
+.a-spinner-wrapper {
+    width: 100%;
+    height: 100%;
+    line-height: 32px;
+    font-size:1.8em;
+}
+
+.a-spinner {
+    display: inline-block;
+}
+
+.a-spinner-medium {
+    width: 32px;
+    height: 32px;
+    background: url(../Images/spinner-black.gif) 50% 50% no-repeat;
+    margin: 0 12px;
 }

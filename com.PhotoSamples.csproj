@@ -127,6 +127,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Api\ThumbImageController.cs" />
     <Compile Include="Global.asax.cs">
@@ -144,6 +145,8 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Images\dedogsLogo_whiteBG50.png" />
+    <Content Include="Images\spinner-black.gif" />
+    <Content Include="Images\spinner.gif" />
     <Content Include="Photos\ConstructionSewerLinesHancockMI.jpg" />
     <Content Include="Photos\CorporalBunnyBluesSinger.jpg" />
     <Content Include="Photos\PortlandOregonWoodsLeafMeld-Edit.jpg" />
@@ -184,6 +187,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\About\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
