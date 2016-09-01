@@ -27,54 +27,47 @@
         return def["appendImages"].promise();
     }
 
-    fragment = document.createDocumentFragment();
+    fragment = $(document.createDocumentFragment());
     handler = handler ? handler : "/api/thumbImage?p=";
     def["appendImages"] = $.Deferred();
     i = 0;
     (function imageLoad() {
-        var _div,
+        var div,
             _mask;
 
+        console.log(i);
         if (images[i]) {
-            image = document.createElement('img');
             images[i] = handler + setDimensions(i, dimensions.inital);
-            image.src = images[i];
-            image.onload = function () {
+            image = $("<img>").attr("src",images[i]).on("load", function () {
                 dimensions.width = this.width;
                 dimensions.height = this.height;
 
-                div = document.createElement("div");
-                div.setAttribute("class", "img-content");
+                div = $("<div>").attr("class", "img-content");
 
-                _div = $(div);
+                horizontalSpace ? dimensions.inital.width > dimensions.width ? div.width(dimensions.inital.width) : div.width(dimensions.width) : div.width(dimensions.width);
 
-                horizontalSpace ? dimensions.inital.width > dimensions.width ? _div.width(dimensions.inital.width) : _div.width(dimensions.width) : _div.width(dimensions.width);
-
-                dimensions.inital.height > dimensions.height ? _div.height(dimensions.inital.height) : _div.height(dimensions.height);
+                dimensions.inital.height > dimensions.height ? div.height(dimensions.inital.height) : div.height(dimensions.height);
 
                 images[i] = setDimensions(i, dimensions);
-                div.setAttribute("data-src", images[i]);
+                div.data("src", images[i]);
                 images[i] += handler;
 
-                div.appendChild(image);
+                div.append(image);
 
                 if (mask) {
                     _mask = $(mask());
-                    _mask.width(_div.width());
+                    _mask.width(div.width());
 
                     _mask.appendTo(div);
                 }
 
-                fragment.appendChild(div);
+                fragment.append(div);
 
                 i++;
                 imageLoad();
-            }
+            })
         } else {
-            div = document.createElement("div");
-            div.setAttribute("class", "break-all");
-            div.innerHTML = "&nbsp;";
-            fragment.appendChild(div);
+            fragment.append($("<div>").attr("class", "break-all").html("&nbsp;"));
 
             def["appendImages"].resolve(fragment);
             delete def["appendImages"];
@@ -99,6 +92,6 @@ $(function () {
 
     //Returns a DOM fragment
     appendImages(preLoadedImages(), width, height, false, null).done(function (fragment) {
-        $("section").html(fragment);
+        $("section").append(fragment);
     });
 })

@@ -143,7 +143,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Images\dedogsLogo_whiteBG.png" />
     <Content Include="Images\dedogsLogo_whiteBG50.png" />
     <Content Include="Photos\ConstructionSewerLinesHancockMI.jpg" />
     <Content Include="Photos\CorporalBunnyBluesSinger.jpg" />
