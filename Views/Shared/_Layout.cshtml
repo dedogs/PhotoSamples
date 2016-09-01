@@ -25,6 +25,7 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
             </div>
+            <button id="increase" width="50" height="50"></button>
         </div>
     </div>
     <div class="container body-content">
@@ -39,18 +40,5 @@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
     
-    <script>
-        $(function () {
-            //Returns a DOM fragment
-            appendImages(preLoadedImages(), 400, 400, false).done(function (fragment) {
-                $("section").append(fragment);
-            }).then(function() {
-                $("section div").remove();
-                appendImages(preLoadedImages(), 100, 100, false).done(function (fragment) {
-                    $("section").append(fragment);
-                })
-            });
-        })
-    </script>
 </body>
 </html>
