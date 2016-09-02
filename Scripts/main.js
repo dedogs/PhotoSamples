@@ -1,20 +1,25 @@
 ﻿var ImageDisplay = function () {
     //On each continer append addition elments.
     var appendOnEach,
-        onEach = (function () {
-                var methods = [];
-                appendOnEach = function (element) {
-                    for (var i = 0; i < methods.length; i++) {
-                        methods[i](element);
-                    }
-                };
-                return {
-                    add: function (fn) {
-                        methods[methods.length] = fn;
-                    }
-                }
-    }()),
-    append = function(images, width, height, horizontalSpace, handler) {
+        methods = [];
+
+    if (!(this instanceof ImageDisplay)) {
+        return new ImageDisplay();
+    }
+
+    this.onEach = function (fn) {
+        appendOnEach = function (element, img) {
+            for (var i = 0; i < methods.length; i++) {
+                element = methods[i](element, img);
+            }
+        };
+
+        methods[methods.length] = fn;
+
+        return this;
+    };
+
+    this.append = function (images, width, height, horizontalSpace, handler) {
         var image,
             def = {},
             fragment,
@@ -77,7 +82,7 @@
 
                     div.append(image);
 
-                    appendOnEach(div);
+                    appendOnEach(div, image);
 
                     fragment.append(div);
 
@@ -94,29 +99,33 @@
 
         return def["appendImages"].promise();
     }
-
-    return {
-        onEach: onEach,
-        append: append
-    };
 }
 
 $(function () {
     var width = 400,
         height = 312,
-        mask = function (element) {
+        mask = function (element, img) {
             div = $("<div>").attr("class", "mask");
             innerDiv = $("<div>");
 
             div.append(innerDiv);
 
-            return element.append(div);
+            element.append(div);
+
+            return element;
+        },
+        click = function (element, img) {
+            element.on("click", function () {
+                console.log("Image width: " + img.width() + " >> Image height: " + img.height());
+            })
+
+            return element;
         };
 
     var o = ImageDisplay();
 
     //Appends additionial layers/behaviors on top image container.
-    o.onEach.add(mask);
+    o.onEach(mask).onEach(click);
     o.append(preLoadedImages(), width, height, false).done(function (fragment) {
         var section = $("section");
         section.html("").append(fragment);
