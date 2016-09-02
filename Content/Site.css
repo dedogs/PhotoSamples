@@ -9,9 +9,10 @@ section {
 }
 
 .container {
-    height:75px;
-    padding-top:14px;
+    height: 75px;
+    padding-top: 14px;
 }
+
 .img-content {
     margin-right: 8px;
     margin-bottom: 8px;
@@ -56,18 +57,22 @@ section {
     padding: 0;
 }
 
-.a-spinner-wrapper {
+.spinner-wrapper {
     width: 100%;
     height: 100%;
     line-height: 32px;
-    font-size:1.8em;
+    font-size: 1.8em;
 }
 
-.a-spinner {
+    .spinner-wrapper ins {
+        text-decoration: none;
+    }
+
+.spinner {
     display: inline-block;
 }
 
-.a-spinner-medium {
+.spinner-medium {
     width: 32px;
     height: 32px;
     background: url(../Images/spinner-black.gif) 50% 50% no-repeat;

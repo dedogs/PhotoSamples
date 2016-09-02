@@ -2,6 +2,8 @@
     var image,
         def = {},
         fragment,
+        ins,
+        ofNumber,
         dimensions = {
             inital: {
                 width: width,
@@ -29,16 +31,21 @@
 
     fragment = $(document.createDocumentFragment());
     handler = handler ? handler : "/api/thumbImage?p=";
+    ins = $(".spinner-wrapper ins");
+    ofNumber = " of " + images.length;
     def["appendImages"] = $.Deferred();
     i = 0;
     (function imageLoad() {
         var div,
             _mask;
 
+        ins.text(i + 1 + ofNumber);
+
         console.log(i);
         if (images[i]) {
             images[i] = handler + setDimensions(i, dimensions.inital);
-            image = $("<img>").attr("src",images[i]).on("load", function () {
+            image = $("<img>").attr("src", images[i]).on("load", function () {
+
                 dimensions.width = this.width;
                 dimensions.height = this.height;
 
